@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{num}}
+        {{doubleNum}}
+        <button v-on:click="addNum">add</button>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            num: 10
+        },
+        computed:{ //단순한 값에 대한 계산
+            doubleNum:function(){
+                return this.num * 2;
+            }
+        },
+        watch: { //무거운 로직(매번 실행되지 않는)
+            num: function (newValue, oldValue) { //num 데이터가 바뀌게 되면 실행
+                this.fetchUserByNumber(newValue, oldValue);
+            }
+        },
+        methods: {
+            addNum: function () {
+                this.num = this.num + 1;
+            },
+            fetchUserByNumber: function (newValue, oldValue) {
+                console.log(newValue, oldValue)
+            }
+        },
+    })
+
+</script>

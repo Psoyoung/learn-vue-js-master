@@ -7,14 +7,16 @@
 </head>
 <body>
     <div id="app">
-        <router-view></router-view>
+        <!-- <router-view></router-view> -->
+        <router-link to="/login">Login</router-link>
+        <router-link to="/main">main</router-link>    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
     <script>
         var LoginComponent ={
-            template: '<div>login</div>'
+            template: '<h1>login</h1>'
         }
         var MainComponent ={
             template: '<div>main</div>'
